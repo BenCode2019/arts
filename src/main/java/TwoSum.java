@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 给一个数组和一个目标值，获取数组中某两个数相加等于这个target的下标。
@@ -25,6 +26,25 @@ public class TwoSum {
                 return  rs;
             }
             map.put(nums[i],i);
+        }
+        throw new IllegalArgumentException("No two sum solution");
+    }
+
+
+    /**
+     * Leetcode的解决方法，返回的是map中的index和当前循环的index，比我的要简略几行代码
+     * @param nums
+     * @param target
+     * @return
+     */
+    public int[] twoSum2(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+            if (map.containsKey(complement)) {
+                return new int[] { map.get(complement), i };
+            }
+            map.put(nums[i], i);
         }
         throw new IllegalArgumentException("No two sum solution");
     }
