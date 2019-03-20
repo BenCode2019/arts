@@ -1,4 +1,5 @@
 /**
+ * 给出两组数据，将两组数据每一位相加得到值。
  * Created by mengwei on 2019/3/18.
  */
 public class AddTwoNumbers {
@@ -8,6 +9,15 @@ public class AddTwoNumbers {
         ListNode(int x) { val = x; }
     }
 
+    /**
+     * 用headRs保存表头，用carry保存是否需要进位，val1+val2 > 9则进位。
+     * 1 使用的是链表，我出过两个错误，第一个没有考虑[1,8],[0]这种情况我没判空，
+     * 2 第二个[5],[5]这种没有进位.
+     *
+     * @param l1
+     * @param l2
+     * @return
+     */
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         final int val = l1.val;
         ListNode rs = null;
