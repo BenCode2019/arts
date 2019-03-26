@@ -55,7 +55,7 @@ public class MediaOfTwoSortedArrays {
             return nums1[i + k - 1];
         }
         if(k == 1){
-            return min(nums1[i],nums2[j]);
+            return Math.min(nums1[i],nums2[j]);
         }
         int middleValue1 = (i + k / 2 - 1 < nums1.length) ? nums1[i + k / 2 - 1]:Integer.MAX_VALUE;
         int middleValue2 = (j + k / 2 - 1 < nums2.length) ? nums2[j + k / 2 - 1]:Integer.MAX_VALUE;
