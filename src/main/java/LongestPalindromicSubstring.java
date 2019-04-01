@@ -7,12 +7,17 @@
  */
 public class LongestPalindromicSubstring {
     public String longestPalindrome(String s) {
+        if(s.length() <= 0){
+            return s;
+        }
         String longestStr = s.substring(0,1);
         for (int i = 0; i < s.length(); i++) {
+            //奇数的回文
             String scan = scan(s, i,i);
             if(longestStr.length() < scan.length()){
                 longestStr = scan;
             }
+            //偶数的回文
             String scan2 = scan(s, i,i+1);
             if(longestStr.length() < scan2.length()){
                 longestStr = scan2;
@@ -21,6 +26,7 @@ public class LongestPalindromicSubstring {
         return longestStr;
     }
 
+//    从某个单词开始扫描，不停地扫描他的前一个和后一个字符
     public String scan(String s,Integer begin,Integer end){
         while(begin >= 0 && end <= s.length() - 1 && s.charAt(begin) == s.charAt(end)){
             begin--;
@@ -32,6 +38,7 @@ public class LongestPalindromicSubstring {
 
     public static void main(String[] args) {
         String s = "abbba";
+//        String s = "";
         String s1 = new LongestPalindromicSubstring().longestPalindrome(s);
         System.out.println(s1);
     }
