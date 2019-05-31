@@ -37,20 +37,20 @@ public class RemoveNthNodeFromEndofList {
     }
 
     public static void main(String[] args) {
-//        ListNode listNode = new ListNode(1);
-//        ListNode listNode2 = new ListNode(2);
-//        ListNode listNode3 = new ListNode(3);
-//        ListNode listNode4 = new ListNode(4);
-//        ListNode listNode5 = new ListNode(5);
-//        listNode.next = listNode2;
-//        listNode2.next = listNode3;
-//        listNode3.next = listNode4;
-//        listNode4.next = listNode5;
-//        ListNode listNode1 = new RemoveNthNodeFromEndofList().removeNthFromEnd(listNode, 5);
-//        while(listNode1 != null){
-//            System.out.println(listNode1.value);
-//            listNode1 = listNode1.next;
-//        }
+        ListNode listNode = new ListNode(1);
+        ListNode listNode2 = new ListNode(2);
+        ListNode listNode3 = new ListNode(3);
+        ListNode listNode4 = new ListNode(4);
+        ListNode listNode5 = new ListNode(5);
+        listNode.next = listNode2;
+        listNode2.next = listNode3;
+        listNode3.next = listNode4;
+        listNode4.next = listNode5;
+        ListNode listNode1 = new RemoveNthNodeFromEndofList().removeNthFromEnd(listNode, 2);
+        while(listNode1 != null){
+            System.out.println(listNode1.value);
+            listNode1 = listNode1.next;
+        }
         System.out.println("---------------------");
         ListNode listNode22 = new ListNode(1);
         ListNode listNode21 = new RemoveNthNodeFromEndofList().removeNthFromEnd(listNode22, 1);
