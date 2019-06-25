@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 /**
  * 33. Search in Rotated Sorted Array
  * 从左向右，如果左边的点比右边的点小，说明这两个点之间是有序的。
