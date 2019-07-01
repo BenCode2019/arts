@@ -55,6 +55,8 @@ public class FindFirstandLastPositionofElementinSortedArray {
     }
 
     public static void main(String[] args) {
+        System.out.println("args = [" + (4-3)/2 + "]");
+
         int[] nums = {5,7,7,8,8,10};
         int[] ints = new FindFirstandLastPositionofElementinSortedArray().searchRange(nums, 6);
         for (int i = 0; i < ints.length; i++) {
