@@ -27,5 +27,6 @@ public class SearchInsertPosition {
         int[] nums = new int[]{1,3,5,6,7};
         int i = new SearchInsertPosition().searchInsert(nums, 5);
         System.out.println("args = [" + i + "]");
+        System.out.println("args = [" + 1/3  + "-"+ 2%3 + "]");
     }
 }
