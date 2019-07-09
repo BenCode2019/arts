@@ -4,7 +4,7 @@
  *
  * Created by mengwei on 2019/7/5.
  */
-public class SudokuSolver {
+public class SudokuSolver2 {
 
     // box size
     int n = 3;
@@ -50,56 +50,6 @@ public class SudokuSolver {
         board[row][col] = '.';
     }
 
-    public void recursionNextNumbersDFS(int row, int col) {
-        /*
-            Call backtrack function in recursion
-            to continue to place numbers
-            till the moment we have a solution
-        */
-        // if we're in the last cell
-        // that means we have the solution
-        if ((col == N - 1) && (row == N - 1)) {
-            sudokuSolved = true;
-        }
-        // if not yet
-        else {
-            // if we're in the end of the row
-            // go to the next row
-            if (col == N - 1) {
-                sloveDFS(row + 1, 0);
-            }
-            // go to the next column
-            else {
-                sloveDFS(row, col + 1);
-            }
-        }
-    }
-
-    public void sloveDFS(int row, int col) {
-        /*
-            Backtracking
-        */
-        // if the cell is empty
-        if (board[row][col] == '.') {
-            // iterate over all numbers from 1 to 9
-            for (int d = 1; d < 10; d++) {
-                boolean flag = couldPlace(d, row, col);
-                if (flag) {
-                    placeNumber(d, row, col);
-                    recursionNextNumbersDFS(row, col);
-                    // if sudoku is solved, there is no need to backtrack
-                    // since the single unique solution is promised
-                    if (!sudokuSolved) {
-                        removeNumber(d, row, col);
-                    }
-                }
-            }
-        }
-        else {
-            recursionNextNumbersDFS(row, col);
-        }
-    }
-
     public void solveSudoku(char[][] board) {
         this.board = board;
 
@@ -116,6 +66,40 @@ public class SudokuSolver {
         sloveDFS(0, 0);
     }
 
+    public void recursionNextNumbersDFS(int row, int col) {
+        if ((col == N - 1) && (row == N - 1)) {
+            sudokuSolved = true;
+        } else {
+            if (col == N - 1) {
+                sloveDFS(row + 1, 0);
+            }
+            else {
+                sloveDFS(row, col + 1);
+            }
+        }
+    }
+
+    /**
+     * 用两个方法递归是因为要判断当走到最后一个列时如果没有走完要删除当前节点进行回溯。否则就要用到return
+     * @param row
+     * @param col
+     */
+    private void sloveDFS(int row, int col) {
+        if(board[row][col] == '.'){
+            for (int value = 1; value < 10; value++) {
+                if(couldPlace(value,row,col)){
+                    placeNumber(value,row,col);
+                    recursionNextNumbersDFS(row,col);
+                    if(!sudokuSolved){
+                        removeNumber(value,row,col);
+                    }
+                }
+            }
+        }else{
+            recursionNextNumbersDFS(row,col);
+        }
+    }
+
     public static void main(String[] args) {
         char[][] boards = new char[][]{
                 {'5','3','.','.','7','.','.','.','.'},
@@ -128,7 +112,7 @@ public class SudokuSolver {
                 {'.','.','.','4','1','9','.','.','5'},
                 {'.','.','.','.','8','.','.','7','9'}};
 
-        new SudokuSolver().solveSudoku(boards);
+        new SudokuSolver2().solveSudoku(boards);
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 System.out.print("[" + boards[i][j] + "]");
