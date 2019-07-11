@@ -1,7 +1,7 @@
 /**
  * 37. Sudoku Solver
  * 采用回溯法
- *
+ * 用两个方法递归是因为要判断当走到最后一个列时如果没有走完要删除当前节点进行回溯。否则就要用到return
  * Created by mengwei on 2019/7/5.
  */
 public class SudokuSolver2 {
