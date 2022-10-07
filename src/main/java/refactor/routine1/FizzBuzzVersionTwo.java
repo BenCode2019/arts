@@ -9,22 +9,28 @@ package refactor.routine1;
  * @updateBy mengwei
  * @updateTime $ 20:12$ $
  */
-public class FizzBuzz {
+public class FizzBuzzVersionTwo {
 
     public String fizzbuzz(int number){
         if(number == 0){
             return "0";
         }
-        if(number % 3 == 0 && number % 5 == 0){
+        if(divideThreeMode(number) && divideFiveMode(number)){
             return "fizz"+"buzz";
         }
-        if(number % 3 == 0){
+        if(divideThreeMode(number)){
             return "fizz";
         }
-        if(number % 5 == 0){
+        if(divideFiveMode(number)){
             return "buzz";
         }
-
         return String.valueOf(number);
+    }
+
+    private boolean divideThreeMode(int number){
+        return number % 3 == 0;
+    }
+    private boolean divideFiveMode(int number){
+        return number % 5 == 0;
     }
 }

@@ -21,6 +21,7 @@ public class FizzBuzzTests {
         assertEquals(fizzBuzz.fizzbuzz(1),"1");
         assertEquals(fizzBuzz.fizzbuzz(0),"0");
         assertEquals(fizzBuzz.fizzbuzz(3),"fizz");
+        assertEquals(fizzBuzz.fizzbuzz(6),"fizz");
         assertEquals(fizzBuzz.fizzbuzz(5),"buzz");
         assertEquals(fizzBuzz.fizzbuzz(15),"fizzbuzz");
     }
